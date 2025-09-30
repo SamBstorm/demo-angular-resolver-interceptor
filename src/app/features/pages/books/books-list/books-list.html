@@ -1,4 +1,4 @@
-<a routerLink="/create">Ajouter un nouveau livre</a>
+<a routerLink="/books/create">Ajouter un nouveau livre</a>
 @if(books.length == 0){
     <p>Aucun livre à afficher...</p>
 }
@@ -27,9 +27,9 @@
                     <td>{{book.author}}</td>
                     <td>{{book.releaseDate | date:'dd/MM/yyyy'}}</td>
                     <td>
-                        <a routerLink="/details/{{book.id}}">Détails</a> |
-                        <a routerLink="/edit/{{book.id}}">Modifier</a> |
-                        <a routerLink="/delete/{{book.id}}">Supprimer</a>
+                        <a routerLink="/books/details/{{book.id}}">Détails</a> |
+                        <a routerLink="/books/edit/{{book.id}}">Modifier</a> |
+                        <a routerLink="/books/delete/{{book.id}}">Supprimer</a>
                     </td>
                 </tr>
             }
