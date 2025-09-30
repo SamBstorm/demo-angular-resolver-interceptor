@@ -1,4 +1,38 @@
-<p>books-list works!</p>
-<textarea name="" id="">
-    {{books |json}}
-</textarea>
+<a routerLink="/create">Ajouter un nouveau livre</a>
+@if(books.length == 0){
+    <p>Aucun livre à afficher...</p>
+}
+@else {
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Titre
+                </th>
+                <th>
+                    Auteur
+                </th>
+                <th>
+                    Date de sortie
+                </th>
+                <th>
+                    Actions :
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(book of books; track $index){
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.releaseDate | date:'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a routerLink="/details/{{book.id}}">Détails</a> |
+                        <a routerLink="/edit/{{book.id}}">Modifier</a> |
+                        <a routerLink="/delete/{{book.id}}">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
