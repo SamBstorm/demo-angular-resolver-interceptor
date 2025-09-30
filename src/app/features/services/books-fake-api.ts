@@ -18,4 +18,8 @@ export class BooksFakeApi {
   public get(id : number) : Observable<IBook>{
     return this._http.get<IBook>(this._apiUrlBooks + id);
   }
+
+  public post(book : IBook) : Observable<IBook>{
+    return this._http.post<IBook>(this._apiUrlBooks, book);
+  }
 }
